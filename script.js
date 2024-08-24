@@ -99,7 +99,7 @@ var stations = {
 };
 
 // จุดที่บังคับให้ผ่าน
-var mandatoryStops = ["อาคารสิริคุณากร","หอพักนักศึกษาพยาบาล"];
+var mandatoryStops = ["ลานจอรถอุทยานการเกษตร", "อาคารสิริคุณากร", "หอพักนักศึกษาพยาบาล"];
 
 for (var key in stations) {
     L.marker(stations[key]).addTo(map).bindPopup(key);
