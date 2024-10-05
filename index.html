@@ -376,20 +376,10 @@
             }
         }
         function calculateRoute() {
-            const start = document.getElementById("start").value;
-            const end = document.getElementById("end").value;
-            const startCoords = stations[start];
-            const endCoords = stations[end];
-            for (let i = 0; i<=20 ;i++){
-            if ( mainSelect.value === "green" && green[i] === "end" ) {
+            if ("start" === "G1:ลานจอดสถานีชาร์จรถไฟฟ้า" && "end" === "G2/G26:แฟลตป่าดู่1")
+            {
                 alert("ไม่มีการเปลี่ยนสถานี);
-            }}
-            
-            
-               else {
-                alert("กรุณาเลือกจุดเริ่มต้นและจุดหมายที่ถูกต้อง!");
-            }
-            }
+                      }
         }
 
 
