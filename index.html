@@ -3,213 +3,396 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ระบบต่อรถ มข.</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
 </head>
 <body>
-    <div id="map" style="width: 100%; height: 80vh;"></div>
 
     <div class="controls">
-        <label for="start">เลือกสถานีต้นทาง:</label>
-        <select id="start">
-                       <option value="7-11 หลังหอ 8">7-11 หลังหอ 8</option>
-            <option value="Complex">Complex</option>
-            <option value="Golden Living">Golden Living</option>
-            <option value="JK เครื่องเขียน">JK เครื่องเขียน</option>
-            <option value="KKBS">KKBS</option>
-            <option value="YOUR SMILE">YOUR SMILE</option>
-            <option value="กาแฟเด้อหล่า">กาแฟเด้อหล่า</option>
-            <option value="เกษียรสินธุ์ปาร์ค">เกษียรสินธุ์ปาร์ค</option>
-            <option value="คณะเกษตรศาสตร์1">คณะเกษตรศาสตร์1</option>
-            <option value="คณะเกษตรศาสตร์2">คณะเกษตรศาสตร์2</option>
-            <option value="คณะเกษตรศาสตร์3">คณะเกษตรศาสตร์3</option>
-            <option value="คณะทันตแพทยศาสตร์">คณะทันตแพทยศาสตร์</option>
-            <option value="คณะเทคนิคการแพทย์">คณะเทคนิคการแพทย์</option>
-            <option value="คณะเทคโนโลยี1">คณะเทคโนโลยี1</option>
-            <option value="คณะเทคโนโลยี2">คณะเทคโนโลยี2</option>
-            <option value="คณะนิติศาสตร์">คณะนิติศาสตร์</option>
-            <option value="คณะพยาบาลศาสตร์">คณะพยาบาลศาสตร์</option>
-            <option value="คณะแพทย์ศาสตร์">คณะแพทย์ศาสตร์</option>
-            <option value="คณะเภสัชศาสตร์1">คณะเภสัชศาสตร์</option>
-            <option value="คณะเภสัชศาสตร์2">คณะเภสัชศาสตร์2</option>
-            <option value="คณะมนุษยศาสตร์และสังคมศาสตร์">คณะมนุษยศาสตร์และสังคมศาสตร์</option>
-            <option value="คณะวิทยาศาสตร์">คณะวิทยาศาสตร์</option>
-            <option value="คณะวิศวกรรมศาสตร์1">คณะวิศวกรรมศาสตร์1</option>
-            <option value="คณะวิศวกรรมศาสตร์2">คณะวิศวกรรมศาสตร์2</option>
-            <option value="คณะศิลปกรรมศาสตร์">คณะศิลปกรรมศาสตร์</option>
-            <option value="คณะศึกษาศาสตร์">คณะศึกษาศาสตร์</option>
-            <option value="คณะสถาปัตยกรรมศาสตร์">คณะสถาปัตยกรรมศาสตร์</option>
-            <option value="คณะสัตวแพทยศาสตร์">คณะสัตวแพทยศาสตร์</option>
-            <option value="ครัวโอมหมูกรอบ">ครัวโอมหมูกรอบ</option>
-            <option value="คอมเพล็กซ์">คอมเพล็กซ์</option>
-            <option value="คุ้มศรีฐาน">คุ้มศรีฐาน</option>
-            <option value="เคี้ยงหลังมอ">เคี้ยงหลังมอ</option>
-            <option value="ตรงข้ามอาคารสิริคุณากร">ตรงข้ามอาคารสิริคุณากร</option>
-            <option value="ที่พักญาติ">ที่พักญาติ</option>
-            <option value="ที่พักญาติ">ที่พักญาติ</option>
-            <option value="บ้านพักสบาย">บ้านพักสบาย</option>
-            <option value="บ้านสวนมอ">บ้านสวนมอ</option>
-            <option value="บึงหนองแวงตราชู">บึงหนองแวงตราชู</option>
-            <option value="ปตท.">ปตท.</option>
-            <option value="ประตูกังสดาล">ประตูกังสดาล</option>
-            <option value="ประตูเจ้าพ่อมอ">ประตูเจ้าพ่อมอ</option>
-            <option value="ประตูศรีฐาน">ประตูศรีฐาน</option>
-            <option value="พิพิธภัณฑ์ธรรมชาติวิทยา">พิพิธภัณฑ์ธรรมชาติวิทยา</option>
-            <option value="พิมานคอนโด">พิมานคอนโด</option>
-            <option value="แฟลต14">แฟลต14</option>
-            <option value="แฟลตป่าดู่1">แฟลตป่าดู่1</option>
-            <option value="แฟลตป่าดู่2">แฟลตป่าดู่2</option>
-            <option value="แฟลตศูนย์แพทย์">แฟลตศูนย์แพทย์</option>
-            <option value="ร้านชบา">ร้านชบา</option>
-            <option value="ร้านพรพระ">ร้านพรพระ</option>
-            <option value="ร้านพู่กันเครื่องเขียน">ร้านพู่กันเครื่องเขียน</option>
-            <option value="โรงชาย">โรงชาย</option>
-            <option value="โรงพยาบาลศรีนครินทร์">โรงพยาบาลศรีนครินทร์</option>
-            <option value="โรงพิมพ์">โรงพิมพ์</option>
-            <option value="โรงยิมเก่า">โรงยิมเก่า</option>
-            <option value="โรงเรียนสาธิตมหาวิทยาลัยขอนแก่น">โรงเรียนสาธิตมหาวิทยาลัยขอนแก่น</option>
-            <option value="โรงเรียนสาธิตมอดินแดง">โรงเรียนสาธิตมอดินแดง</option>
-            <option value="โรงแรมบายาสิตา">โรงแรมบายาสิตา</option>
-            <option value="โรงอาหาร U-center">โรงอาหาร U-center</option>
-            <option value="โรงอาหารคณะพยาบาล">โรงอาหารคณะพยาบาล</option>
-            <option value="โรงอาหารหนองแวง">โรงอาหารหนองแวง</option>
-            <option value="ลานจอดรถหอพัก 8 หลัง">ลานจอดรถหอพัก 8 หลัง</option>
-            <option value="ลานจอรถอุทยานการเกษตร">ลานจอรถอุทยานการเกษตร</option>
-            <option value="วงเวียนศูนย์หัวใจสิริกิติ์">วงเวียนศูนย์หัวใจสิริกิติ์</option>
-            <option value="วิทยาลัยปกครองท้องถิ่น">วิทยาลัยปกครองท้องถิ่น</option>
-            <option value="วิมานดิน">วิมานดิน</option>
-            <option value="ศาลเจ้าพ่อมอ">ศาลเจ้าพ่อมอ</option>
-            <option value="ศูนย์ประชุมกาญจนาภิเษก">ศูนย์ประชุมกาญจนาภิเษก</option>
-            <option value="ศูนย์รถมอเตอร์ไซไฟฟ้า">ศูนย์รถมอเตอร์ไซไฟฟ้า</option>
-            <option value="ศูนย์หัวใจสิริกิติ์">ศูนย์หัวใจสิริกิติ์</option>
-            <option value="สถาบันขงจื่อ">สถาบันขงจื่อ</option>
-            <option value="สถาบันลุ่มน้ำโขง">สถาบันลุ่มน้ำโขง</option>
-            <option value="สนามยิงปืน">สนามยิงปืน</option>
-            <option value="สนามรักบี้">สนามรักบี้</option>
-            <option value="สระพลาสติก">สระพลาสติก</option>
-            <option value="หน้าอาคารสิริคุณากร">หน้าอาคารสิริคุณากร</option>
-            <option value="หมู่บ้านศูนย์แพทย์">หมู่บ้านศูนย์แพทย์</option>
-            <option value="หมู่บ้านศูนย์แพทย์1">หมู่บ้านศูนย์แพทย์1</option>
-            <option value="หมู่บ้านศูนย์แพทย์4">หมู่บ้านศูนย์แพทย์4</option>
-            <option value="หอในชาย 8">หอในชาย 8</option>
-            <option value="หอในชาย 9">หอในชาย 9</option>
-            <option value="หอพัก 8 หลัง">หอพัก 8 หลัง</option>
-            <option value="หอพักนักศึกษาพยาบาล">หอพักนศ.พยาบาล</option>
-            <option value="หอพักนักศึกษาแพทย์">หอพักนักศึกษาแพทย์</option>
-            <option value="หอพักมอแดงเพลส">หอพักมอแดงเพลส</option>
-            <option value="หอศิลป์">หอศิลป์</option>
-            <option value="หอสมุดมหาวิทยาลัยขอนแก่น">หอสมุดมหาวิทยาลัยขอนแก่น</option>
-            <option value="หออินเตอร์">หออินเตอร์</option>
-            <option value="อาคารจอดรถสถานีชาร์จไฟฟ้า">อาคารจอดรถสถานีชาร์จไฟฟ้า</option>
-            <option value="อาคารสิริคุณากร">อาคารสิริคุณากร</option>
-            <option value="อุทยานการเกษตร1">อุทยานการเกษตร1</option>
-            <option value="อุทยานการเกษตร2">อุทยานการเกษตร2</option>
-            <!-- รายการอื่นๆ -->
+                <label for="Color">เส้นทางเดินรถ:</label>
+        <select id="Color">
+            <option value=" ">...</option>
+            <option value="green">สายสีเขียว</option>
+            <option value="red">สายสีแดง</option>
+            <option value="yellow">สายสีเหลือง</option>
+            <option value="blue">สายสีน้ำเงิน</option>
         </select>
-        
+        <div id="subOptions" style="display:none;">
+            <label for="start">เลือกสถานีเริ่มต้น:</label>
+            <select id="start">
+                <option value=" ">...</option>
+            </select>
+        </div>
         <label for="end">เลือกสถานีปลายทาง:</label>
         <select id="end">
-            <option value="7-11 หลังหอ 8">7-11 หลังหอ 8</option>
-            <option value="Complex">Complex</option>
-            <option value="Golden Living">Golden Living</option>
-            <option value="JK เครื่องเขียน">JK เครื่องเขียน</option>
-            <option value="KKBS">KKBS</option>
-            <option value="YOUR SMILE">YOUR SMILE</option>
-            <option value="กาแฟเด้อหล่า">กาแฟเด้อหล่า</option>
-            <option value="เกษียรสินธุ์ปาร์ค">เกษียรสินธุ์ปาร์ค</option>
-            <option value="คณะเกษตรศาสตร์1">คณะเกษตรศาสตร์1</option>
-            <option value="คณะเกษตรศาสตร์2">คณะเกษตรศาสตร์2</option>
-            <option value="คณะเกษตรศาสตร์3">คณะเกษตรศาสตร์3</option>
-            <option value="คณะทันตแพทยศาสตร์">คณะทันตแพทยศาสตร์</option>
-            <option value="คณะเทคนิคการแพทย์">คณะเทคนิคการแพทย์</option>
-            <option value="คณะเทคโนโลยี1">คณะเทคโนโลยี1</option>
-            <option value="คณะเทคโนโลยี2">คณะเทคโนโลยี2</option>
-            <option value="คณะนิติศาสตร์">คณะนิติศาสตร์</option>
-            <option value="คณะพยาบาลศาสตร์">คณะพยาบาลศาสตร์</option>
-            <option value="คณะแพทย์ศาสตร์">คณะแพทย์ศาสตร์</option>
-            <option value="คณะเภสัชศาสตร์1">คณะเภสัชศาสตร์</option>
-            <option value="คณะเภสัชศาสตร์2">คณะเภสัชศาสตร์2</option>
-            <option value="คณะมนุษยศาสตร์และสังคมศาสตร์">คณะมนุษยศาสตร์และสังคมศาสตร์</option>
+            <option value=" "> </option>
+            <option value="B5:7-11 หลังหอ 8 หลัง">B5:7-11 หลังหอ 8 หลัง</option>
+            <option value="B18/R7:คอมเพล็กซ์">B18/R7:คอมเพล็กซ์</option>
+            <option value="B4:Golden Living">B4:Golden Living</option>
+            <option value="Y17/Y22:JK เครื่องเขียน">Y17/Y22:JK เครื่องเขียน</option>
+            <option value="Y27/B21:KKBS-MBA.KKU">Y27/B21:KKBS-MBA.KKU</option>
+            <option value="Y20:ทำฟัน YOUR SMILE">Y20:ทำฟัน YOUR SMILE</option>
+            <option value="B19/R8:กาแฟเด้อหล่า">B19/R8:กาแฟเด้อหล่า</option>
+            <option value="B12:เกษียรสินธุ์ปาร์ค">B12:เกษียรสินธุ์ปาร์ค</option>
+            <option value="R26/G13:คณะเกษตรศาสตร์-หอสมุด">R26/G13:คณะเกษตรศาสตร์-หอสมุด</option>
+            <option value="Y6/G15:คณะเกษตรศาสตร์-อาคารพลศึกษา">Y6/G15:คณะเกษตรศาสตร์-อาคารพลศึกษา</option>
+            <option value="Y37/B39/R27/G14:คณะเกษตรศาสตร์-โรงอาหารชาย">Y37/B39/R27/G14:คณะเกษตรศาสตร์-โรงอาหารชาย</option>
+            <option value="Y24/R20:คณะทันตแพทยศาสตร์">Y24/R20:คณะทันตแพทยศาสตร์</option>
+            <option value="B25/R21:คณะเทคนิคการแพทย์">B25/R21:คณะเทคนิคการแพทย์</option>
+            <option value="Y7/G16:คณะเทคโนโลยี">Y7/G16:คณะเทคโนโลยี</option>
+            <option value="R25/G12:คณะเทคโนโลยี-คณะวิศวกรรมศาสตร์">R25/G12:คณะเทคโนโลยี-คณะวิศวกรรมศาสตร์</option>
+            <option value="G7:คณะนิติศาสตร์">G7:คณะนิติศาสตร์</option>
+            <option value="Y11:คณะพยาบาลศาสตร์">Y11:คณะพยาบาลศาสตร์</option>
+            <option value="B24:คณะแพทย์ศาสตร์">B24:คณะแพทย์ศาสตร์</option>
+            <option value="Y25:คณะเภสัชศาสตร์">Y25:คณะเภสัชศาสตร์</option>
+            <option value="B34:คณะเภสัชศาสตร์-คณะสถาปัตย์ฯ">B34:คณะเภสัชศาสตร์-คณะสถาปัตย์ฯ</option>
+            <option value="Y35/B37:คณะมนุษยศาสตร์และสังคมศาสตร์">Y35/B37:คณะมนุษยศาสตร์และสังคมศาสตร์</option>
             <option value="คณะวิทยาศาสตร์">คณะวิทยาศาสตร์</option>
-            <option value="คณะวิศวกรรมศาสตร์1">คณะวิศวกรรมศาสตร์1</option>
-            <option value="คณะวิศวกรรมศาสตร์2">คณะวิศวกรรมศาสตร์2</option>
-            <option value="คณะศิลปกรรมศาสตร์">คณะศิลปกรรมศาสตร์</option>
-            <option value="คณะศึกษาศาสตร์">คณะศึกษาศาสตร์</option>
-            <option value="คณะสถาปัตยกรรมศาสตร์">คณะสถาปัตยกรรมศาสตร์</option>
-            <option value="คณะสัตวแพทยศาสตร์">คณะสัตวแพทยศาสตร์</option>
-            <option value="ครัวโอมหมูกรอบ">ครัวโอมหมูกรอบ</option>
+            <option value="Y10:คณะวิศวกรรมศาสตร์ (สาขาเคมี)">Y10:คณะวิศวกรรมศาสตร์ (สาขาเคมี)</option>
+            <option value="Y9:คณะวิศวกรรมศาสตร์ (สาขาอุตสาหการ)">Y9:คณะวิศวกรรมศาสตร์ (สาขาอุตสาหการ)</option>
+            <option value="B31:คณะศิลปกรรมศาสตร์">B31:คณะศิลปกรรมศาสตร์</option>
+            <option value="B23:คณะสถาปัตยกรรมศาสตร์">B23:คณะสถาปัตยกรรมศาสตร์</option>
+            <option value="Y26/B35:คณะสถาปัตย์ฯ-คณะศึกษาศาสตร์">Y26/B35:คณะสถาปัตย์ฯ-คณะศึกษาศาสตร์</option>
+            <option value="Y31/R10:คณะสัตวแพทยศาสตร์">Y31/R10:คณะสัตวแพทยศาสตร์</option>
+            <option value="B10:ครัวโอมหมูกรอบ">B10:ครัวโอมหมูกรอบ</option>
             <option value="คอมเพล็กซ์">คอมเพล็กซ์</option>
-            <option value="คุ้มศรีฐาน">คุ้มศรีฐาน</option>
-            <option value="เคี้ยงหลังมอ">เคี้ยงหลังมอ</option>
-            <option value="ตรงข้ามอาคารสิริคุณากร">ตรงข้ามอาคารสิริคุณากร</option>
-            <option value="ที่พักญาติ">ที่พักญาติ</option>
-            <option value="ที่พักญาติ">ที่พักญาติ</option>
-            <option value="บ้านพักสบาย">บ้านพักสบาย</option>
-            <option value="บ้านสวนมอ">บ้านสวนมอ</option>
-            <option value="บึงหนองแวงตราชู">บึงหนองแวงตราชู</option>
-            <option value="ปตท.">ปตท.</option>
-            <option value="ประตูกังสดาล">ประตูกังสดาล</option>
-            <option value="ประตูเจ้าพ่อมอ">ประตูเจ้าพ่อมอ</option>
-            <option value="ประตูศรีฐาน">ประตูศรีฐาน</option>
-            <option value="พิพิธภัณฑ์ธรรมชาติวิทยา">พิพิธภัณฑ์ธรรมชาติวิทยา</option>
-            <option value="พิมานคอนโด">พิมานคอนโด</option>
-            <option value="แฟลต14">แฟลต14</option>
-            <option value="แฟลตป่าดู่1">แฟลตป่าดู่1</option>
-            <option value="แฟลตป่าดู่2">แฟลตป่าดู่2</option>
-            <option value="แฟลตศูนย์แพทย์">แฟลตศูนย์แพทย์</option>
-            <option value="ร้านชบา">ร้านชบา</option>
-            <option value="ร้านพรพระ">ร้านพรพระ</option>
-            <option value="ร้านพู่กันเครื่องเขียน">ร้านพู่กันเครื่องเขียน</option>
-            <option value="โรงชาย">โรงชาย</option>
-            <option value="โรงพยาบาลศรีนครินทร์">โรงพยาบาลศรีนครินทร์</option>
-            <option value="โรงพิมพ์">โรงพิมพ์</option>
-            <option value="โรงยิมเก่า">โรงยิมเก่า</option>
-            <option value="โรงเรียนสาธิตมหาวิทยาลัยขอนแก่น">โรงเรียนสาธิตมหาวิทยาลัยขอนแก่น</option>
-            <option value="โรงเรียนสาธิตมอดินแดง">โรงเรียนสาธิตมอดินแดง</option>
-            <option value="โรงแรมบายาสิตา">โรงแรมบายาสิตา</option>
-            <option value="โรงอาหาร U-center">โรงอาหาร U-center</option>
-            <option value="โรงอาหารคณะพยาบาล">โรงอาหารคณะพยาบาล</option>
-            <option value="โรงอาหารหนองแวง">โรงอาหารหนองแวง</option>
-            <option value="ลานจอดรถหอพัก 8 หลัง">ลานจอดรถหอพัก 8 หลัง</option>
-            <option value="ลานจอรถอุทยานการเกษตร">ลานจอรถอุทยานการเกษตร</option>
-            <option value="วงเวียนศูนย์หัวใจสิริกิติ์">วงเวียนศูนย์หัวใจสิริกิติ์</option>
-            <option value="วิทยาลัยปกครองท้องถิ่น">วิทยาลัยปกครองท้องถิ่น</option>
-            <option value="วิมานดิน">วิมานดิน</option>
-            <option value="ศาลเจ้าพ่อมอ">ศาลเจ้าพ่อมอ</option>
-            <option value="ศูนย์ประชุมกาญจนาภิเษก">ศูนย์ประชุมกาญจนาภิเษก</option>
-            <option value="ศูนย์รถมอเตอร์ไซไฟฟ้า">ศูนย์รถมอเตอร์ไซไฟฟ้า</option>
-            <option value="ศูนย์หัวใจสิริกิติ์">ศูนย์หัวใจสิริกิติ์</option>
-            <option value="สถาบันขงจื่อ">สถาบันขงจื่อ</option>
-            <option value="สถาบันลุ่มน้ำโขง">สถาบันลุ่มน้ำโขง</option>
-            <option value="สนามยิงปืน">สนามยิงปืน</option>
-            <option value="สนามรักบี้">สนามรักบี้</option>
+            <option value="G4/G24:ศูนย์พิพิธภัณฑ์และแหล่งเรียนรู้ตลอดชีวิต">G4/G24:ศูนย์พิพิธภัณฑ์และแหล่งเรียนรู้ตลอดชีวิต</option>
+            <option value="B9:เคี้ยงซุปเปอร์สโตร์หลังมอ">B9:เคี้ยงซุปเปอร์สโตร์หลังมอ</option>
+            <option value="G17:สวนหน้าอาคารสิริคุณากร">G17:สวนหน้าอาคารสิริคุณากร</option>
+            <option value="Y4/R30:เรือนพักญาติ">Y4/R30:เรือนพักญาติ</option>
+            <option value="B11:หอพักบ้านสบาย">B11:หอพักบ้านสบาย</option>
+            <option value="B2:หมู่บ้านสวนมอ">B2:หมู่บ้านสวนมอ</option>
+            <option value="Y19:บึงหนองแวงตราชู">Y19:บึงหนองแวงตราชู</option>
+            <option value="R4:ปั้ม ปตท.">R4:ปั้ม ปตท.</option>
+            <option value="Y14/Y23:ประตูกังสดาล">Y14/Y23:ประตูกังสดาล</option>
+            <option value="Y34/R13:ประตูมอดินแดง">Y34/R13:ประตูมอดินแดง</option>
+            <option value="G23:ประตูศรีฐาน">G23:ประตูศรีฐาน</option>
+            <option value="G3/G25:พิพิธภัณฑ์ธรรมชาติวิทยา">G3/G25:พิพิธภัณฑ์ธรรมชาติวิทยา</option>
+            <option value="B13:พิมานคอนโด">B13:พิมานคอนโด</option>
+            <option value="Y16/R19:แฟลต14">Y16/R19:แฟลต14</option>
+            <option value="G2/G26:แฟลตป่าดู่1">G2/G26:แฟลตป่าดู่1</option>
+            <option value="G8/G20:แฟลตป่าดู่2">G8/G20:แฟลตป่าดู่2</option>
+            <option value="Y12/B26:แฟลตศูนย์แพทย์">Y12/B26:แฟลตศูนย์แพทย์</option>
+            <option value="B8:ร้านชบาน์">B8:ร้านชบาน์</option>
+            <option value="Y18/Y21:ร้านพรพระ">Y18/Y21:ร้านพรพระ</option>
+            <option value="B6:ร้านพู่กันเครื่องเขียน">B6:ร้านพู่กันเครื่องเขียน</option>
+            <option value="B17/R6:โรงอาหารชาย">B17/R6:โรงอาหารชาย</option>
+            <option value="R16:รพ.ศรีนครินทร์">R16:รพ.ศรีนครินทร์</option>
+            <option value="Y8/R24:คณะวิศวกรรมศาสตร์ (สาขาเครื่องกล)-โรงพิมพ์">Y8/R24:คณะวิศวกรรมศาสตร์ (สาขาเครื่องกล)-โรงพิมพ์</option>
+            <option value="Y38/B40/R28:โรงยิม">Y38/B40/R28:โรงยิม</option>
+            <option value="G21:โรงเรียนสาธิตฯ (ศึกษาศาสตร์)">G21:โรงเรียนสาธิตฯ (ศึกษาศาสตร์)</option>
+            <option value="Y32/R11:โรงเรียนสาธิตฯ (มอดินแดง)">Y32/R11:โรงเรียนสาธิตฯ (มอดินแดง)</option>
+            <option value="Y30/R9:โรงแรมบายาสิตา">Y30/R9:โรงแรมบายาสิตา</option>
+            <option value="B14:U-center">B14:U-center</option>
+            <option value="B33/R22:โรงอาหารคณะพยาบาลฯ">B33/R22:โรงอาหารคณะพยาบาลฯ</option>
+            <option value="Y13:ศูนย์อาหารหนองแวง">Y13:ศูนย์อาหารหนองแวง</option>
+            <option value="Y1/B1/R1:ลานจอดรถหอพัก 8 หลัง">Y1/B1/R1:ลานจอดรถหอพัก 8 หลัง</option>
+            <option value="G18:ลานจอรถอุทยานการเกษตร">G18:ลานจอรถอุทยานการเกษตร</option>
+            <option value="Y15/R18:วงเวียนศูนย์หัวใจสิริกิติ์">Y15/R18:วงเวียนศูนย์หัวใจสิริกิติ์</option>
+            <option value="R15:วิทยาลัยการปกครองท้องถิ่น (COLA)">R15:วิทยาลัยการปกครองท้องถิ่น (COLA)</option>
+            <option value="B3:วิมานดิน">B3:วิมานดิน</option>
+            <option value="Y33/R12:ศาสเจ้าพ่อมอดินแดง">Y33/R12:ศาสเจ้าพ่อมอดินแดง</option>
+            <option value="G6/G22:ศูนย์ประชุมกาญจนาภิเษก">G6/G22:ศูนย์ประชุมกาญจนาภิเษก</option>
+            <option value="Y29/B36:ศูนย์รถมอเตอร์ไซต์ไฟฟ้า">Y29/B36:ศูนย์รถมอเตอร์ไซต์ไฟฟ้า</option>
+            <option value="R17:ศูนย์หัวใจสิริกิติ์">R17:ศูนย์หัวใจสิริกิติ์</option>
+            <option value="R14:สถาบันขงจื่อ">R14:สถาบันขงจื่อ</option>
+            <option value="B20:สถาบันลุ่มน้ำโขง">B20:สถาบันลุ่มน้ำโขง</option>
+            <option value="Y39/B41:สนามยิงปืน">Y39/B41:สนามยิงปืน</option>
+            <option value="Y5/R29:ลานกีฬา">Y5/R29:ลานกีฬา</option>
             <option value="สระพลาสติก">สระพลาสติก</option>
-            <option value="หน้าอาคารสิริคุณากร">หน้าอาคารสิริคุณากร</option>
-            <option value="หมู่บ้านศูนย์แพทย์">หมู่บ้านศูนย์แพทย์</option>
-            <option value="หมู่บ้านศูนย์แพทย์1">หมู่บ้านศูนย์แพทย์1</option>
-            <option value="หมู่บ้านศูนย์แพทย์4">หมู่บ้านศูนย์แพทย์4</option>
-            <option value="หอในชาย 8">หอในชาย 8</option>
-            <option value="หอในชาย 9">หอในชาย 9</option>
+            <option value="G11:หน้าอาคารสิริคุณากร">G11:หน้าอาคารสิริคุณากร</option>
+            <option value="B32:หมู่บ้านศูนย์แพทย์">B32:หมู่บ้านศูนย์แพทย์</option>
+            <option value="B27:หมู่บ้านศูนย์แพทย์1">B27:หมู่บ้านศูนย์แพทย์1</option>
+            <option value="B28:หมู่บ้านศูนย์แพทย์4">B28:หมู่บ้านศูนย์แพทย์4</option>
+            <option value="B16/R5:หอชายที่ 8">B16/R5:หอชายที่ 8</option>
+            <option value="B15:หอชายที่ 9">B15:หอชายที่ 9</option>
             <option value="หอพัก 8 หลัง">หอพัก 8 หลัง</option>
-            <option value="หอพักนักศึกษาพยาบาล">หอพักนศ.พยาบาล</option>
-            <option value="หอพักนักศึกษาแพทย์">หอพักนักศึกษาแพทย์</option>
-            <option value="หอพักมอแดงเพลส">หอพักมอแดงเพลส</option>
-            <option value="หอศิลป์">หอศิลป์</option>
-            <option value="หอสมุดมหาวิทยาลัยขอนแก่น">หอสมุดมหาวิทยาลัยขอนแก่น</option>
+            <option value="B29:หอพักคณะพยาบาลฯ">B29:หอพักคณะพยาบาลฯ</option>
+            <option value="R23:หอพัก นศ.แพทย์">R23:หอพัก นศ.แพทย์</option>
+            <option value="B7:มอแดงเพลส">B7:มอแดงเพลส</option>
+            <option value="G5:หอศิลป์">G5:หอศิลป์</option>
+            <option value="Y36/B38:หอสมุดมหาวิทยาลัยขอนแก่น">Y36/B38:หอสมุดมหาวิทยาลัยขอนแก่น</option>
             <option value="หออินเตอร์">หออินเตอร์</option>
-            <option value="อาคารจอดรถสถานีชาร์จไฟฟ้า">อาคารจอดรถสถานีชาร์จไฟฟ้า</option>
-            <option value="อาคารสิริคุณากร">อาคารสิริคุณากร</option>
-            <option value="อุทยานการเกษตร1">อุทยานการเกษตร1</option>
-            <option value="อุทยานการเกษตร2">อุทยานการเกษตร2</option>
+            <option value="G1:ลานจอดสถานีชาร์จรถไฟฟ้า">G1:ลานจอดสถานีชาร์จรถไฟฟ้า</option>
+            <option value="B30/G10:อาคารสิริคุณากร">B30/G10:อาคารสิริคุณากร</option>
+            <option value="G19:อุทยานการเกษตร (ตรงข้าม)">G19:อุทยานการเกษตร (ตรงข้าม)</option>
+            <option value="G9:อุทยานการเกษตร">G9:อุทยานการเกษตร</option>
+
             <!-- รายการอื่นๆ -->
         </select>
-
-        <button onclick="calculateRoute()">ค้นหาเส้นทาง</button>
+        <button onclick="calculateRoute()">คำนวณเส้นทาง</button>
     </div>
-    <script src="script.js"></script>
+    <div id="map"></div>
+    
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <script>
+        document.getElementById("Color").addEventListener("change", showSubOptions);
+    const stations = {
+    "B5:7-11 หลังหอ 8 หลัง",
+    "B4:Golden Living",
+    "Y17/Y22:JK เครื่องเขียน",
+    "Y27/B21:KKBS-MBA.KKU",
+    "Y20:ทำฟัน Your smile",
+    "B19/R8:กาแฟเด้อหล่า",
+    "B12:เกษียรสินธุ์ปาร์ค",
+    "R26/G13:คณะเกษตรศาสตร์-หอสมุด",
+    "Y6/G15:คณะเกษตรศาสตร์-อาคารพลศึกษา",
+    "Y37/B39/R27/G14:คณะเกษตรศาสตร์-โรงอาหารชาย",
+    "Y24/R20:คณะทันตแพทยศาสตร์",
+    "B25/R21:คณะเทคนิคการแพทย์",
+    "R25/G12:คณะเทคโนโลยี-คณะวิศวกรรมศาสตร์",
+    "Y7/G16-คณะเทคโนโลยี",
+    "G7:คณะนิติศาสตร์",
+    "Y11:คณะพยาบาลศาสตร์",
+    "B24:คณะแพทย์ศาสตร์",
+    "Y25:คณะเภสัชศาสตร์",
+    "B34:คณะเภสัชศาสตร์-คณะสถาปัตย์ฯ",
+    "Y35/B37:คณะมนุษยศาสตร์และสังคมศาสตร์",
+    "Y28/B22:คณะวิทยาศาสตร์",
+    "Y10:คณะวิศวกรรมศาสตร์ (สาขาเคมี)",
+    "Y9:คณะวิศวกรรมศาสตร์ (สาขาอุตสาหการ)",
+    "B31:คณะศิลปกรรมศาสตร์",
+    "B23:คณะสถาปัตยกรรมศาสตร์",
+    "Y26/B35:คณะสถาปัตย์ฯ-คณะศึกษาศาสตร์",
+    "Y31/R10:คณะสัตวแพทยศาสตร์",
+    "B10:ครัวโอมหมูกรอบ",
+    "B18/R7:คอมเพล็กซ์",
+    "G4/G24:ศูนย์พิพิธภัณฑ์และแหล่งเรียนรู้ตลอดชีวิต",
+    "B9:เคี้ยงซุปเปอร์สโตร์หลังมอ",
+    "G17:สวนหน้าอาคารสิริคุณากร",
+    "Y4/R30:เรือนพักญาติ",
+    "B11:หอพักบ้านสบาย",
+    "B2:หมู่บ้านสวนมอ",
+    "Y19:บึงหนองแวงตราชู",
+    "R4:ปั้ม ปตท.",
+    "Y14/Y23:ประตูกังสดาล",
+    "Y34/R13:ประตูมอดินแดง",
+    "G23:ประตูศรีฐาน",
+    "G3/G25:พิพิธภัณฑ์ธรรมชาติวิทยา",
+    "B13:พิมานคอนโด",
+    "Y16/R19:แฟลต14",
+    "G2/G26:แฟลตป่าดู่1",
+    "G8/G20:แฟลตป่าดู่2",
+    "Y12/B26:แฟลตศูนย์แพทย์",
+    "B8:ร้านชบาน์",
+    "Y18/Y21:ร้านพรพระ",
+    "B6:ร้านพู่กันเครื่องเขียน",
+    "B17/R6:โรงอาหารชาย",
+    "R16:รพ.ศรีนครินทร์",
+    "Y8/R24:คณะวิศวกรรมศาสตร์ (สาขาเครื่องกล)-โรงพิมพ์",
+    "Y38/B40/R28:โรงยิม",
+    "G21:โรงเรียนสาธิตฯ (ศึกษาศาสตร์)",
+    "Y32/R11:โรงเรียนสาธิตฯ (มอดินแดง)",
+    "Y30/R9:โรงแรมบายาสิตา",
+    "B14:U-center",
+    "B33/R22:โรงอาหารคณะพยาบาลฯ",
+    "Y13:ศูนย์อาหารหนองแวง",
+    "Y1/B1/R1:ลานจอดรถหอพัก 8 หลัง",
+    "G18:ลานจอรถอุทยานการเกษตร",
+    "Y15/R18:วงเวียนศูนย์หัวใจสิริกิติ์",
+    "R15:วิทยาลัยการปกครองท้องถิ่น (COLA)",
+    "B3:วิมานดิน",
+    "Y33/R12:ศาลเจ้าพ่อมอดินแดง",
+    "G6/G22:ศูนย์ประชุมกาญจนาภิเษก",
+    "Y29/B36:ศูนย์รถมอเตอร์ไซต์ไฟฟ้า",
+    "R17:ศูนย์หัวใจสิริกิติ์",
+    "R14:สถาบันขงจื่อ",
+    "B20:สถาบันลุ่มน้ำโขง",
+    "Y39/B41:สนามยิงปืน",
+    "Y5/R29:ลานกีฬา",
+    "G11:หน้าอาคารสิริคุณากร",
+    "B32:หมู่บ้านศูนย์แพทย์",
+    "B27:หมู่บ้านศูนย์แพทย์1",
+    "B28:หมู่บ้านศูนย์แพทย์4",
+    "B16/R5:หอชายที่ 8",
+    "B15:หอชายที่ 9",
+    "หอพัก 8 หลัง",
+    "B29:หอพักคณะพยาบาลฯ",
+    "R23:หอพัก นศ.แพทย์",
+    "B7:มอแดงเพลส",
+    "G5:หอศิลป์",
+    "Y36/B38:หอสมุดมหาวิทยาลัยขอนแก่น",
+    "หออินเตอร์",
+    "G1:ลานจอดสถานีชาร์จรถไฟฟ้า",
+    "B30/G10:อาคารสิริคุณากร",
+    "G19:อุทยานการเกษตร (ตรงข้าม)",
+    "G9:อุทยานการเกษตร"
+        };
+        const Gstage1 = {"G2/G26:แฟลตป่าดู่1","G3/G25:พิพิธภัณฑ์ธรรมชาติวิทยา","G4/G24:ศูนย์พิพิธภัณฑ์และแหล่งเรียนรู้ตลอดชีวิต","G5:หอศิลป์","G6/G22:ศูนย์ประชุมกาญจนาภิเษก","G7:คณะนิติศาสตร์","G8/G20:แฟลตป่าดู่2","G9:อุทยานการเกษตร"};
+        const Bstage1 = {"B2:หมู่บ้านสวนมอ","B3:วิมานดิน","B4:Golden Living","B5:7-11 หลังหอ 8 หลัง","B6:ร้านพู่กันเครื่องเขียน","B7:มอแดงเพลส","B8:ร้านชบาน์","B9:เคี้ยงซุปเปอร์สโตร์หลังมอ","B10:ครัวโอมหมูกรอบ","B11:หอพักบ้านสบาย","B12:เกษียรสินธุ์ปาร์ค","B13:พิมานคอนโด","B14:U-center","B15:หอชายที่ 9"};
+        const Rstage1 = {,"R14:สถาบันขงจื่อ","R15:วิทยาลัยการปกครองท้องถิ่น (COLA)","R16:รพ.ศรีนครินทร์","R17:ศูนย์หัวใจสิริกิติ์"};
+        
+    function showSubOptions() {
+      const mainSelect = document.getElementById("Color");
+      const subOptions = document.getElementById("subOptions");
+      const subSelect = document.getElementById("start");
+      subSelect.innerHTML = "<option value=''>เลือก...</option>";
+            if (mainSelect.value === "green") {
+                subOptions.style.display = "block";
+                subSelect.innerHTML += '<option value=" "></option>';
+                subSelect.innerHTML += '<option value="G1:ลานจอดสถานีชาร์จรถไฟฟ้า">G1:ลานจอดสถานีชาร์จรถไฟฟ้า</option>';
+                subSelect.innerHTML += '<option value="G2/G26:แฟลตป่าดู่1">G2/G26:แฟลตป่าดู่1</option>';
+                subSelect.innerHTML += '<option value="G3/G25:พิพิธภัณฑ์ธรรมชาติวิทยา">G3/G25:พิพิธภัณฑ์ธรรมชาติวิทยา</option>';
+                subSelect.innerHTML += '<option value="G4/G24:ศูนย์พิพิธภัณฑ์และแหล่งเรียนรู้ตลอดชีวิต">G4/G24:ศูนย์พิพิธภัณฑ์และแหล่งเรียนรู้ตลอดชีวิต</option>';
+                subSelect.innerHTML += '<option value="G5:หอศิลป์">G5:หอศิลป์</option>';
+                subSelect.innerHTML += '<option value="G6/G22:ศูนย์ประชุมกาญจนาภิเษก">G6/G22:ศูนย์ประชุมกาญจนาภิเษก</option>';
+                subSelect.innerHTML += '<option value="G7:คณะนิติศาสตร์">G7:คณะนิติศาสตร์</option>';
+                subSelect.innerHTML += '<option value="G8/G20:แฟลตป่าดู่2">G8/G20:แฟลตป่าดู่2</option>';
+                subSelect.innerHTML += '<option value="G19:อุทยานการเกษตร (ตรงข้าม)">G19:อุทยานการเกษตร (ตรงข้าม)</option>';
+                subSelect.innerHTML += '<option value="B30/G10:อาคารสิริคุณากร">B30/G10:อาคารสิริคุณากร</option>';
+                subSelect.innerHTML += '<option value="G11:หน้าอาคารสิริคุณากร">G11:หน้าอาคารสิริคุณากร</option>';
+                subSelect.innerHTML += '<option value="R25/G12:คณะเทคโนโลยี-คณะวิศวกรรมศาสตร์">R25/G12:คณะเทคโนโลยี-คณะวิศวกรรมศาสตร์</option>';
+                subSelect.innerHTML += '<option value="R26/G13:คณะเกษตรศาสตร์-หอสมุด">R26/G13:คณะเกษตรศาสตร์-หอสมุด</option>';
+                subSelect.innerHTML += '<option value="Y37/B39/R27/G14:คณะเกษตรศาสตร์-โรงอาหารชาย">Y37/B39/R27/G14:คณะเกษตรศาสตร์-โรงอาหารชาย</option>';
+                subSelect.innerHTML += '<option value="Y6/G15:คณะเกษตรศาสตร์-อาคารพลศึกษา">Y6/G15:คณะเกษตรศาสตร์-อาคารพลศึกษา</option>';
+                subSelect.innerHTML += '<option value="Y7/G16:คณะเทคโนโลยี">Y7/G16:คณะเทคโนโลยี</option>';
+                subSelect.innerHTML += '<option value="G17:สวนหน้าอาคารสิริคุณากร">G17:สวนหน้าอาคารสิริคุณากร</option>';
+                subSelect.innerHTML += '<option value="G18:ลานจอรถอุทยานการเกษตร">G18:ลานจอรถอุทยานการเกษตร</option>';
+                subSelect.innerHTML += '<option value="G9:อุทยานการเกษตร">G9:อุทยานการเกษตร</option>';
+                subSelect.innerHTML += '<option value="G21:โรงเรียนสาธิตฯ (ศึกษาศาสตร์)">G21:โรงเรียนสาธิตฯ (ศึกษาศาสตร์)</option>';
+                subSelect.innerHTML += '<option value=" G23:ประตูศรีฐาน">G23:ประตูศรีฐาน</option>';
+
+            }
+            else if (mainSelect.value === "red") {
+                subOptions.style.display = "block";
+                subSelect.innerHTML += '<option value=" "> </option>';
+                subSelect.innerHTML += '<option value="หอพัก 8 หลัง">หอพัก 8 หลัง</option>';
+                subSelect.innerHTML += '<option value="หออินเตอร์">หออินเตอร์</option>';
+                subSelect.innerHTML += '<option value="R4:ปั้ม ปตท.">R4:ปั้ม ปตท.</option>';
+                subSelect.innerHTML += '<option value="B16/R5:หอชายที่ 8">B16/R5:หอชายที่ 8</option>';
+                subSelect.innerHTML += '<option value="B17/R6:โรงอาหารชาย">B17/R6:โรงอาหารชาย</option>';
+                subSelect.innerHTML += '<option value="B18/R7:คอมเพล็กซ์">B18/R7:คอมเพล็กซ์</option>';
+                subSelect.innerHTML += '<option value="B19/R8:กาแฟเด้อหล่า">B19/R8:กาแฟเด้อหล่า</option>';
+                subSelect.innerHTML += '<option value="Y30/R9:โรงแรมบายาสิตา">Y30/R9:โรงแรมบายาสิตา</option>';
+                subSelect.innerHTML += '<option value="Y31/R10:คณะสัตวแพทยศาสตร์">Y31/R10:คณะสัตวแพทยศาสตร์</option>';
+                subSelect.innerHTML += '<option value="Y32/R11:โรงเรียนสาธิตฯ (มอดินแดง)">Y32/R11:โรงเรียนสาธิตฯ (มอดินแดง)</option>';
+                subSelect.innerHTML += '<option value="Y33/R12:ศาสเจ้าพ่อมอดินแดง">Y33/R12:ศาสเจ้าพ่อมอดินแดง</option>';
+                subSelect.innerHTML += '<option value="Y34/R13:ประตูมอดินแดง">Y34/R13:ประตูมอดินแดง</option>';
+                subSelect.innerHTML += '<option value="R14:สถาบันขงจื่อ">R14:สถาบันขงจื่อ</option>';
+                subSelect.innerHTML += '<option value="R15:วิทยาลัยการปกครองท้องถิ่น (COLA)">R15:วิทยาลัยการปกครองท้องถิ่น (COLA)</option>';
+                subSelect.innerHTML += '<option value="R16:รพ.ศรีนครินทร์">R16:รพ.ศรีนครินทร์</option>';
+                subSelect.innerHTML += '<option value="R17:ศูนย์หัวใจสิริกิติ์">R17:ศูนย์หัวใจสิริกิติ์</option>';
+                subSelect.innerHTML += '<option value="Y15/R18:วงเวียนศูนย์หัวใจสิริกิติ์">Y15/R18:วงเวียนศูนย์หัวใจสิริกิติ์</option>';
+                subSelect.innerHTML += '<option value="Y16/R19:แฟลต14">Y16/R19:แฟลต14</option>';
+                subSelect.innerHTML += '<option value="Y24/R20:คณะทันตแพทยศาสตร์">Y24/R20:คณะทันตแพทยศาสตร์</option>';
+                subSelect.innerHTML += '<option value="B25/R21:คณะเทคนิคการแพทย์">B25/R21:คณะเทคนิคการแพทย์</option>';
+                subSelect.innerHTML += '<option value="B33/R22:โรงอาหารคณะพยาบาลฯ">B33/R22:โรงอาหารคณะพยาบาลฯ</option>';
+                subSelect.innerHTML += '<option value="R23:หอพัก นศ.แพทย์">R23:หอพัก นศ.แพทย์</option>';
+                subSelect.innerHTML += '<option value="Y8/R24:คณะวิศวกรรมศาสตร์ (สาขาเครื่องกล)-โรงพิมพ์">Y8/R24:คณะวิศวกรรมศาสตร์ (สาขาเครื่องกล)-โรงพิมพ์</option>';
+                subSelect.innerHTML += '<option value="R25/G12:คณะเทคโนโลยี-คณะวิศวกรรมศาสตร์">R25/G12:คณะเทคโนโลยี-คณะวิศวกรรมศาสตร์</option>';
+                subSelect.innerHTML += '<option value="R26/G13:คณะเกษตรศาสตร์-หอสมุด">R26/G13:คณะเกษตรศาสตร์-หอสมุด</option>';
+                subSelect.innerHTML += '<option value="Y37/B39/R27/G14:คณะเกษตรศาสตร์-โรงอาหารชาย">Y37/B39/R27/G14:คณะเกษตรศาสตร์-โรงอาหารชาย</option>';
+                subSelect.innerHTML += '<option value="Y38/B40/R28:โรงยิม">Y38/B40/R28:โรงยิม</option>';
+                subSelect.innerHTML += '<option value="Y5/R29:ลานกีฬา">Y5/R29:ลานกีฬา</option>';
+                subSelect.innerHTML += '<option value="Y39/B41:สนามยิงปืน">Y39/B41:สนามยิงปืน</option>';
+
+            }
+            else if (mainSelect.value === "yellow") {
+                subOptions.style.display = "block";
+                subSelect.innerHTML += '<option value=" "> </option>';
+                subSelect.innerHTML += '<option value="หอพัก 8 หลัง">หอพัก 8 หลัง</option>';
+                subSelect.innerHTML += '<option value="หออินเตอร์">หออินเตอร์</option>';
+                subSelect.innerHTML += '<option value="Y4/R30:เรือนพักญาติ">Y4/R30:เรือนพักญาติ</option>';
+                subSelect.innerHTML += '<option value="Y5/R29:ลานกีฬา">Y5/R29:ลานกีฬา</option>';
+                subSelect.innerHTML += '<option value="Y6/G15:คณะเกษตรศาสตร์-อาคารพลศึกษา">Y6/G15:คณะเกษตรศาสตร์-อาคารพลศึกษา</option>';
+                subSelect.innerHTML += '<option value="Y7/G16:คณะเทคโนโลยี">Y7/G16:คณะเทคโนโลยี</option>';
+                subSelect.innerHTML += '<option value="Y10:คณะวิศวกรรมศาสตร์ (สาขาเคมี)">Y10:คณะวิศวกรรมศาสตร์ (สาขาเคมี)</option>';
+                subSelect.innerHTML += '<option value="Y8/R24:คณะวิศวกรรมศาสตร์ (สาขาเครื่องกล)-โรงพิมพ์">Y8/R24:คณะวิศวกรรมศาสตร์ (สาขาเครื่องกล)-โรงพิมพ์</option>';
+                subSelect.innerHTML += '<option value="Y9:คณะวิศวกรรมศาสตร์ (สาขาอุตสาหการ)">Y9:คณะวิศวกรรมศาสตร์ (สาขาอุตสาหการ)</option>';
+                subSelect.innerHTML += '<option value="Y11:คณะพยาบาลศาสตร์">Y11:คณะพยาบาลศาสตร์</option>';
+                subSelect.innerHTML += '<option value="Y12/B26:แฟลตศูนย์แพทย์">Y12/B26:แฟลตศูนย์แพทย์</option>';
+                subSelect.innerHTML += '<option value="Y13:ศูนย์อาหารหนองแวง">Y13:ศูนย์อาหารหนองแวง</option>';
+                subSelect.innerHTML += '<option value="Y14/Y23:ประตูกังสดาล">Y14/Y23:ประตูกังสดาล</option>';
+                subSelect.innerHTML += '<option value="Y15/R18:วงเวียนศูนย์หัวใจสิริกิติ์">Y15/R18:วงเวียนศูนย์หัวใจสิริกิติ์</option>';
+                subSelect.innerHTML += '<option value="Y16/R19:แฟลต14">Y16/R19:แฟลต14</option>';
+                subSelect.innerHTML += '<option value="Y17/Y22:JK เครื่องเขียน">Y17/Y22:JK เครื่องเขียน</option>';
+                subSelect.innerHTML += '<option value="Y18/Y21:ร้านพรพระ">Y18/Y21:ร้านพรพระ</option>';
+                subSelect.innerHTML += '<option value="Y19:บึงหนองแวงตราชู">Y19:บึงหนองแวงตราชู</option>';
+                subSelect.innerHTML += '<option value="Y20:ทำฟัน YOUR SMILE">Y20:ทำฟัน YOUR SMILE</option>';
+                subSelect.innerHTML += '<option value="Y24/R20:คณะทันตแพทยศาสตร์">Y24/R20:คณะทันตแพทยศาสตร์</option>';
+                subSelect.innerHTML += '<option value="Y25:คณะเภสัชศาสตร์">Y25:คณะเภสัชศาสตร์</option>';
+                subSelect.innerHTML += '<option value="Y26/B35:คณะสถาปัตย์ฯ-คณะศึกษาศาสตร์">Y26/B35:คณะสถาปัตย์ฯ-คณะศึกษาศาสตร์</option>';
+                subSelect.innerHTML += '<option value="Y27/B21:KKBS-MBA.KKU">Y27/B21:KKBS-MBA.KKU</option>';
+                subSelect.innerHTML += '<option value="คณะวิทยาศาสตร์">คณะวิทยาศาสตร์</option>';
+                subSelect.innerHTML += '<option value="Y29/B36:ศูนย์รถมอเตอร์ไซต์ไฟฟ้า">Y29/B36:ศูนย์รถมอเตอร์ไซต์ไฟฟ้า</option>';
+                subSelect.innerHTML += '<option value="Y30/R9:โรงแรมบายาสิตา">Y30/R9:โรงแรมบายาสิตา</option>';
+                subSelect.innerHTML += '<option value="Y31/R10:คณะสัตวแพทยศาสตร์">Y31/R10:คณะสัตวแพทยศาสตร์</option>';
+                subSelect.innerHTML += '<option value="Y32/R11:โรงเรียนสาธิตฯ (มอดินแดง)">Y32/R11:โรงเรียนสาธิตฯ (มอดินแดง)</option>';
+                subSelect.innerHTML += '<option value="Y33/R12:ศาสเจ้าพ่อมอดินแดง">Y33/R12:ศาสเจ้าพ่อมอดินแดง</option>';
+                subSelect.innerHTML += '<option value="Y34/R13:ประตูมอดินแดง">Y34/R13:ประตูมอดินแดง</option>';
+                subSelect.innerHTML += '<option value="Y35/B37:คณะมนุษยศาสตร์และสังคมศาสตร์">Y35/B37:คณะมนุษยศาสตร์และสังคมศาสตร์</option>';
+                subSelect.innerHTML += '<option value="Y36/B38:หอสมุดมหาวิทยาลัยขอนแก่น">Y36/B38:หอสมุดมหาวิทยาลัยขอนแก่น</option>';
+                subSelect.innerHTML += '<option value="Y37/B39/R27/G14:คณะเกษตรศาสตร์-โรงอาหารชาย">Y37/B39/R27/G14:คณะเกษตรศาสตร์-โรงอาหารชาย</option>';
+                subSelect.innerHTML += '<option value="Y38/B40/R28:โรงยิม">Y38/B40/R28:โรงยิม</option>';
+                subSelect.innerHTML += '<option value="Y39/B41:สนามยิงปืน">Y39/B41:สนามยิงปืน</option>';
+            }
+            else if (mainSelect.value === "blue") {
+                subOptions.style.display = "block";
+                subSelect.innerHTML += '<option value=" "> </option>';
+                subSelect.innerHTML += '<option value="B2:หมู่บ้านสวนมอ">B2:หมู่บ้านสวนมอ</option>';
+                subSelect.innerHTML += '<option value="B3:วิมานดิน">B3:วิมานดิน</option>';
+                subSelect.innerHTML += '<option value="B4:Golden Living">B4:Golden Living</option>';
+                subSelect.innerHTML += '<option value="7-11 หลังหออินเตอร์">B5:7-11 หลังหอ 8 หลัง</option>';
+                subSelect.innerHTML += '<option value="B6:ร้านพู่กันเครื่องเขียน">B6:ร้านพู่กันเครื่องเขียน</option>';
+                subSelect.innerHTML += '<option value="B7:มอแดงเพลส">B7:มอแดงเพลส</option>';
+                subSelect.innerHTML += '<option value="B8:ร้านชบาน์">B8:ร้านชบาน์</option>';
+                subSelect.innerHTML += '<option value="B9:เคี้ยงซุปเปอร์สโตร์หลังมอ">B9:เคี้ยงซุปเปอร์สโตร์หลังมอ</option>';
+                subSelect.innerHTML += '<option value="B10:ครัวโอมหมูกรอบ">B10:ครัวโอมหมูกรอบ</option>';
+                subSelect.innerHTML += '<option value="B11:หอพักบ้านสบาย">B11:หอพักบ้านสบาย</option>';
+                subSelect.innerHTML += '<option value="B12:เกษียรสินธุ์ปาร์ค">B12:เกษียรสินธุ์ปาร์ค</option>';
+                subSelect.innerHTML += '<option value="B13:พิมานคอนโด">B13:พิมานคอนโด</option>';
+                subSelect.innerHTML += '<option value="B14:U-center">B14:U-center</option>';
+                subSelect.innerHTML += '<option value="B15:หอชายที่ 9">B15:หอชายที่ 9</option>';
+                subSelect.innerHTML += '<option value="B16/R5:หอชายที่ 8">B16/R5:หอชายที่ 8</option>';
+                subSelect.innerHTML += '<option value="B17/R6:โรงอาหารชาย">B17/R6:โรงอาหารชาย</option>';
+                subSelect.innerHTML += '<option value="B18/R7:คอมเพล็กซ์">B18/R7:คอมเพล็กซ์</option>';
+                subSelect.innerHTML += '<option value="B19/R8:กาแฟเด้อหล่า">B19/R8:กาแฟเด้อหล่า</option>';
+                subSelect.innerHTML += '<option value="B20:สถาบันลุ่มน้ำโขง">B20:สถาบันลุ่มน้ำโขง</option>';
+                subSelect.innerHTML += '<option value="Y27/B21:KKBS-MBA.KKU">Y27/B21:KKBS-MBA.KKU</option>';
+                subSelect.innerHTML += '<option value="คณะวิทยาศาสตร์">คณะวิทยาศาสตร์</option>';
+                subSelect.innerHTML += '<option value="Y26/B35:คณะสถาปัตย์ฯ-คณะศึกษาศาสตร์">Y26/B35:คณะสถาปัตย์ฯ-คณะศึกษาศาสตร์</option>';
+                subSelect.innerHTML += '<option value="B24:คณะแพทย์ศาสตร์">B24:คณะแพทย์ศาสตร์</option>';
+                subSelect.innerHTML += '<option value="B25/R21:คณะเทคนิคการแพทย์">B25/R21:คณะเทคนิคการแพทย์</option>';
+                subSelect.innerHTML += '<option value="Y12/B26:แฟลตศูนย์แพทย์">Y12/B26:แฟลตศูนย์แพทย์</option>';
+                subSelect.innerHTML += '<option value="B27:หมู่บ้านศูนย์แพทย์1">B27:หมู่บ้านศูนย์แพทย์1</option>';
+                subSelect.innerHTML += '<option value="B28:หมู่บ้านศูนย์แพทย์4">B28:หมู่บ้านศูนย์แพทย์4</option>';
+                subSelect.innerHTML += '<option value="B29:หอพักคณะพยาบาลฯ"> B29:หอพักคณะพยาบาลฯ</option>';
+                subSelect.innerHTML += '<option value="B30/G10:อาคารสิริคุณากร">B30/G10:อาคารสิริคุณากร</option>';
+                subSelect.innerHTML += '<option value="B31:คณะศิลปกรรมศาสตร์">B31:คณะศิลปกรรมศาสตร์</option>';
+                subSelect.innerHTML += '<option value="B32:หมู่บ้านศูนย์แพทย์">B32:หมู่บ้านศูนย์แพทย์</option>';
+                subSelect.innerHTML += '<option value="B33/R22:โรงอาหารคณะพยาบาลฯ">B33/R22:โรงอาหารคณะพยาบาลฯ</option>';
+                subSelect.innerHTML += '<option value="B34:คณะเภสัชศาสตร์-คณะสถาปัตย์ฯ">B34:คณะเภสัชศาสตร์-คณะสถาปัตย์ฯ</option>';
+                subSelect.innerHTML += '<option value="B23:คณะสถาปัตยกรรมศาสตร์">B23:คณะสถาปัตยกรรมศาสตร์</option>';
+                subSelect.innerHTML += '<option value="Y29/B36:ศูนย์รถมอเตอร์ไซต์ไฟฟ้า">Y29/B36:ศูนย์รถมอเตอร์ไซต์ไฟฟ้า</option>';
+                subSelect.innerHTML += '<option value="Y35/B37:คณะมนุษยศาสตร์และสังคมศาสตร์">Y35/B37:คณะมนุษยศาสตร์และสังคมศาสตร์</option>';
+                subSelect.innerHTML += '<option value="Y36/B38:หอสมุดมหาวิทยาลัยขอนแก่น">Y36/B38:หอสมุดมหาวิทยาลัยขอนแก่น</option>';
+                subSelect.innerHTML += '<option value="Y37/B39/R27/G14:คณะเกษตรศาสตร์-โรงอาหารชาย">Y37/B39/R27/G14:คณะเกษตรศาสตร์-โรงอาหารชาย</option>';
+                subSelect.innerHTML += '<option value="Y38/B40/R28:โรงยิม">Y38/B40/R28:โรงยิม</option>';
+                subSelect.innerHTML += '<option value="Y39/B41:สนามยิงปืน">Y39/B41:สนามยิงปืน</option>';
+
+            }
+            else {
+                subOptions.style.display = "none";
+            }
+        }
+        function calculateRoute() {
+            const start = document.getElementById("start").value;
+            const end = document.getElementById("end").value;
+            const startCoords = stations[start];
+            const endCoords = stations[end];
+            for (let i = 0; i<=20 ;i++){
+            if ( mainSelect.value === "green" && green[i] === "end" ) {
+                alert("ไม่มีการเปลี่ยนสถานี);
+            }}
+            
+            
+               else {
+                alert("กรุณาเลือกจุดเริ่มต้นและจุดหมายที่ถูกต้อง!");
+            }
+            }
+        }
+
+
+    </script>
 </body>
 </html>
